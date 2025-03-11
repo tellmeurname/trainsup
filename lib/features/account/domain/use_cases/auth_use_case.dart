@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart'; // Добавьте этот импорт
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:trainsup/features/account/data/repositories/auth_repository.dart';
 
 class AuthUseCase {
