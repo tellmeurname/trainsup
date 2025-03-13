@@ -1,9 +1,11 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:trainsup/app/blocs/auth_bloc.dart';
+import 'package:trainsup/features/account/domain/use_cases/auth_use_case.dart';
+import 'package:trainsup/features/account/data/repositories/auth_repository.dart';
 import 'package:trainsup/app/routes/router.dart';
-import 'package:trainsup/features/account/presentation/auth_screen.dart';
-import 'package:trainsup/features/account/presentation/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +20,15 @@ void main() async {
       measurementId: "G-DXZTQ5S0XF",
     ),
   );
-  runApp(MyApp());
+
+  runApp(
+    BlocProvider<AuthBloc>(
+      create: (context) => AuthBloc(
+        AuthUseCase(FirebaseAuthRepository(FirebaseAuth.instance)),
+      ),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

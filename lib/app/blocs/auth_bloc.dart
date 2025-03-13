@@ -1,7 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:trainsup/features/account/domain/use_cases/auth_use_case.dart';
 import 'auth_state.dart';
+
 part 'auth_event.dart';
+
+
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthUseCase authUseCase;
 
@@ -11,7 +14,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       try {
         final result = await authUseCase.signIn(event.email, event.password);
         if (result != null) {
-          emit(AuthSuccess(result.user)); // Переход к HomeScreen
+          emit(AuthSuccess(result.user));
         } else {
           emit(AuthError('Failed to sign in'));
         }
@@ -25,7 +28,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       try {
         final result = await authUseCase.signUp(event.email, event.password);
         if (result != null) {
-          emit(AuthSuccess(result.user)); // Переход к HomeScreen
+          emit(AuthSuccess(result.user));
         } else {
           emit(AuthError('Failed to sign up'));
         }

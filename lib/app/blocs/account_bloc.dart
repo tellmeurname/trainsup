@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:trainsup/app/models/user_model.dart'; // Импортируйте модель User здесь
+import 'package:trainsup/app/models/user_model.dart'; 
 import 'package:trainsup/features/account/domain/use_cases/get_user_use_case.dart';
 
 part 'account_state.dart'; // Подключаем файл состояний

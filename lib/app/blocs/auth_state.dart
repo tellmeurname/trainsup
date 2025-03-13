@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart'; // Добавьте этот импорт
+import 'package:firebase_auth/firebase_auth.dart'; 
 
 
 abstract class AuthState {}
@@ -8,7 +8,7 @@ class AuthInitial extends AuthState {}
 class AuthLoading extends AuthState {}
 
 class AuthSuccess extends AuthState {
-  final User? user; // Теперь Dart знает, что это за User
+  final User? user; 
 
   AuthSuccess(this.user);
 }
